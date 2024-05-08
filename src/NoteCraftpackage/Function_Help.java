@@ -7,11 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-public class Function_Help extends JFrame {
+public class Function_Help extends JFrame
+{
 
     GUI gui;
 
-    public Function_Help() {
+    public Function_Help()
+    {
         setTitle("About Notepad");
         setSize(400, 320);
         setResizable(false);
@@ -39,7 +41,7 @@ public class Function_Help extends JFrame {
         authorLabel.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(authorLabel);
 
-        JLabel descriptionLabel = new JLabel("<html>This is a clone of Notepad.<br>It is developed in Java programming Language.<br>Developed & Created by Muhammad Hasnain / Hassan Raza</html>");
+        JLabel descriptionLabel = new JLabel("<html>This is a clone of Notepad.<br>It is developed in Java programming Language.<br>Developed & Created by Muhammad Hasnain & Hassan Raza</html>");
         descriptionLabel.setBounds(40, 100, 320, 60);
         descriptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(descriptionLabel);
@@ -52,8 +54,10 @@ public class Function_Help extends JFrame {
         }
 
         JButton okButton = new JButton("OK");
-        okButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        okButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
                 dispose();
             }
         });
@@ -64,17 +68,22 @@ public class Function_Help extends JFrame {
         setVisible(true);
     }
 
-    protected ImageIcon createImageIcon(String path, String description) {
+    protected ImageIcon createImageIcon(String path, String description)
+    {
         URL imgURL = getClass().getResource(path);
-        if (imgURL != null) {
+        if (imgURL != null)
+        {
             return new ImageIcon(imgURL, description);
-        } else {
+        }
+        else
+        {
             System.err.println("Couldn't find file: " + path);
             return null;
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SwingUtilities.invokeLater(Function_Help::new);
     }
 

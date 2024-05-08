@@ -2,7 +2,8 @@ package NoteCraftpackage;
 import javax.swing.*;
 import java.awt.*;
 
-public class Function_Format {
+public class Function_Format
+{
 
     GUI gui;
     String selectedFont;
@@ -17,18 +18,22 @@ public class Function_Format {
 
     public void word_wrap()
     {
-        if (!gui.wordWrap.getState()) {
+        if (!gui.wordWrap.getState())
+        {
             gui.wordWrap.setState(true);
             gui.textarea.setLineWrap(true);
             gui.textarea.setWrapStyleWord(true);
-        } else if (gui.wordWrap.getState()) {
+        }
+        else if (gui.wordWrap.getState())
+        {
             gui.wordWrap.setState(false);
             gui.textarea.setLineWrap(false);
             gui.textarea.setWrapStyleWord(false);
         }
     }
 
-    public void setFontStyle() {
+    public void setFontStyle()
+    {
 
         Font textAreaFont = gui.textarea.getFont();
 
@@ -39,12 +44,14 @@ public class Function_Format {
         String[] fontNames = ge.getAvailableFontFamilyNames();
         selectedFont = (String) JOptionPane.showInputDialog(gui.window, "Choose Font Style:", "Font Selection", JOptionPane.PLAIN_MESSAGE, null, fontNames, fontNames[0]);
 
-        if (selectedFont != null) {
+        if (selectedFont != null)
+        {
             gui.textarea.setFont(new Font(selectedFont, Font.PLAIN, defaultFontSize));
         }
     }
 
-    public void setFontSize() {
+    public void setFontSize()
+    {
         // Create an array for font sizes
         Integer[] fontSizes = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
 

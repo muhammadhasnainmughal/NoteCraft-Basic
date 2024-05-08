@@ -9,7 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 
-public class Function_File {
+public class Function_File
+{
 
     //make class object
     GUI gui;
@@ -55,13 +56,15 @@ public class Function_File {
             br.close();
 
         }
-        catch(Exception e){
+        catch(Exception e)
+        {
 
             JOptionPane.showMessageDialog(gui.window,"File Not Open","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public boolean isTextModified() {
+    public boolean isTextModified()
+    {
         return true;
     }
 
@@ -71,8 +74,10 @@ public class Function_File {
         {
             saveAs_file();
         }
-        else {
-            try{
+        else
+        {
+            try
+            {
                 FileWriter fw = new FileWriter(fileAddress + fileName);
                 fw.write(gui.textarea.getText());
                 gui.window.setTitle(fileName);

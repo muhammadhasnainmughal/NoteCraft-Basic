@@ -5,7 +5,8 @@ import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GUI implements ActionListener {
+public class GUI implements ActionListener
+{
 
     JFrame window;
     JTextArea textarea;
@@ -64,7 +65,8 @@ public class GUI implements ActionListener {
         window.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         window.setLocationRelativeTo(null);
 
-        window.addWindowListener(new WindowAdapter() {
+        window.addWindowListener(new WindowAdapter()
+        {
             @Override
             public void windowClosing(WindowEvent e) {
                 file.exit();
@@ -94,7 +96,8 @@ public class GUI implements ActionListener {
 
     }
 
-    public void createStatusLabel() {
+    public void createStatusLabel()
+    {
         statusLabel = new JTextArea("Ln 1, Col 1");
         statusLabel.setFont((new Font(Font.SANS_SERIF, Font.PLAIN, 12)));
         statusLabel.setBorder(BorderFactory.createEtchedBorder());
@@ -102,15 +105,19 @@ public class GUI implements ActionListener {
     }
 
     // Method to update line and column numbers
-    private void updateStatus() {
+    private void updateStatus()
+    {
         int caretPosition = textarea.getCaretPosition();
         int lineNumber = 1;
         int columnNumber = 1;
 
-        try {
+        try
+        {
             lineNumber = textarea.getLineOfOffset(caretPosition) + 1;
             columnNumber = caretPosition - textarea.getLineStartOffset(lineNumber - 1) + 1;
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
 //            ex.printStackTrace();
         }
 
@@ -123,7 +130,9 @@ public class GUI implements ActionListener {
     }
 
 
-    public void createMenuBar(){
+
+    public void createMenuBar()
+    {
         menuBar = new JMenuBar();
         window.setJMenuBar(menuBar);
 
@@ -320,7 +329,7 @@ public class GUI implements ActionListener {
         //****VIEW MENU ALL OPTIONS
 
         zoomIn = new JMenuItem("Zoom in");
-        zoomIn.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PLUS, KeyEvent.CTRL_DOWN_MASK));
+        zoomIn.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_EQUALS, KeyEvent.CTRL_DOWN_MASK));
         zoomIn.addActionListener(this);
         zoomIn.setActionCommand("ZoomIn");
         menuView.add(zoomIn);
@@ -346,7 +355,8 @@ public class GUI implements ActionListener {
 
     }
 
-    public void word_wrap(boolean wrap) {
+    public void word_wrap(boolean wrap)
+    {
         textarea.setLineWrap(wrap);
         textarea.setWrapStyleWord(wrap);
     }
@@ -405,6 +415,31 @@ public class GUI implements ActionListener {
                 edit.paste();
                 break;
 
+            case "Find" :
+                edit.find();
+                break ;
+
+            case "Replace" :
+                edit.replace();
+                break ;
+
+            case "GoTo" :
+            {
+                edit.Goto();
+                break ;
+            }
+
+            case "SelectAll" :
+            {
+                edit.selectAll();
+                break ;
+            }
+
+            case "DateAndTime" :
+            {
+                edit.Date();
+                break ;
+            }
             //FORMAT MENU COMMAND
 
             case "WordWrap":
@@ -467,6 +502,17 @@ public class GUI implements ActionListener {
 
             //VIEW MENU COMMAND
 
+            case "ZoomIn" :
+            {
+                view.zoomIN();
+                break ;
+            }
+
+            case "ZoomOut" :
+            {
+                view.zoomOut();
+                break ;
+            }
 
             //HELP MENU COMMAND
 
